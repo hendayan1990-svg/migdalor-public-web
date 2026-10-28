@@ -20,3 +20,38 @@
  .hero-grid{padding-top:17px;gap:24px}
  .hero h1{font-size:39px}
 }
+
+/* Short form mobile-first: simple, accessible, low-friction */
+.lead-section{padding-top:64px;padding-bottom:82px}
+.lead-grid{grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:5%}
+.lead-info{padding-top:24px}
+.lead-info .mini-cards{margin:22px 0}
+#campaignLeadForm{gap:15px;padding:25px}
+.optional-details{border:1px solid #dce9e2;border-radius:12px;padding:12px 14px;background:#f8fcf9}
+.optional-details summary{cursor:pointer;font-size:14px;font-weight:800;color:#37605b}
+.optional-details summary span{font-size:12px;color:#718781;font-weight:400}
+.optional-details .field{margin-top:11px}
+.optional-optin{border-top:1px solid #ebf0ec;padding-top:14px;font-size:13px}
+.submit{background:#075342;box-shadow:0 14px 28px #0b755032}
+.submit:hover{background:#00684b}
+.field input:not([type=checkbox]),.field select{min-height:52px}
+.field-hint{color:#617877;font-size:12px}
+.form-caption{font-size:13px;line-height:1.45;color:#536f68}
+.lead-section{scroll-margin-top:92px}
+@media(max-width:830px){.lead-grid{grid-template-columns:1fr}.lead-info{padding-top:0}}
+@media(max-width:500px){
+ .lead-section{padding:40px 0 60px}
+ .lead-info h2{font-size:31px}
+ .lead-info .mini-cards{display:none}
+ .lead-card{border-radius:17px}
+ #campaignLeadForm{padding:18px;gap:12px}
+ .fields-pair{grid-template-columns:1fr;gap:12px}
+ .form-header{padding:19px 20px 15px}
+ .form-header h3{font-size:25px}
+ .form-header p{font-size:14px}
+ .submit{font-size:17px;min-height:56px}
+ .lead-section{scroll-margin-top:70px}
+}
+/* Put the form directly after the lead section begins on phones; no lengthy explanations first. */
+@media(max-width:830px){.lead-card{order:-1}.lead-info{order:2}}
+@media(max-width:500px){.lead-grid{gap:23px}.lead-info{display:none}.video-foot{font-size:12px}}
