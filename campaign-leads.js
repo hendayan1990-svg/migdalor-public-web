@@ -37,6 +37,34 @@ try{
 const r=await fetch(api,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
 const result=await r.json().catch(()=>({}));
 if(!r.ok||result.ok!==true)throw Error(result.error||'שמירת הבקשה נכשלה. נסו שוב.');
+// Email notification uses Web3Forms' public, browser-side key. The lead has already been saved in Supabase.
+// Never treat a mail failure as a lost lead, and never send partner data unless separately consented.
+let mailSent=false;
+try{
+  const mailRequest={
+    access_key:'cc8ca543-a32a-4ab2-85b8-2becc58d0a67',
+    from_name:'Migdalor Lead Notifications',
+    subject:'[מגדלור] פנייה חדשה | '+body.intent+' | '+body.city,
+    name:body.fullName,phone:body.phone,city:body.city,
+    intent:body.intent,provider:body.provider,customer_type:body.customerType,
+    timing:body.timing,contact_method:body.contactMethod,
+    referral_opt_in:body.referralOptIn?'כן':'לא',
+    source:body.utmSource,medium:body.utmMedium,campaign:body.utmCampaign,
+    message:'פנייה חדשה ממגדלור. הערות הלקוח: '+(body.notes||'ללא הערות'),
+    botcheck:false
+  };
+  if(body.email)mailRequest.email=body.email;
+  const ac=new AbortController();const timer=setTimeout(()=>ac.abort(),9000);
+  try{
+    const m=await fetch('https://api.web3forms.com/submit',{
+      method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify(mailRequest),signal:ac.signal
+    });
+    const reply=await m.json().catch(()=>({}));
+    mailSent=m.ok&&reply.success===true;
+  }finally{clearTimeout(timer);}
+}catch(error){console.warn('Migdalor: lead saved; notification not confirmed');}
+window.__migdalorLastMailStatus=mailSent?'sent':'not_confirmed';
 form.classList.add('hidden');$('success').classList.remove('hidden');
 const wa='שלום מגדלור, השארתי פנייה באתר. שם: '+body.fullName+' | צורך: '+body.intent+' | חברת אינטרנט נוכחית: '+body.provider+' | יישוב: '+body.city;
 $('successWA').href='https://wa.me/972559344185?text='+encodeURIComponent(wa);
