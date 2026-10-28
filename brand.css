@@ -1,0 +1,26 @@
+
+/* Unified Migdalor brand identity — one lighthouse mark across all pages */
+a.brand.logo-lockup{display:inline-flex!important;direction:rtl;align-items:center;justify-content:flex-start;flex-wrap:nowrap;gap:10px;text-decoration:none;min-width:0;line-height:1.05;white-space:nowrap}
+a.brand.logo-lockup .logo-mark{display:block;flex:0 0 auto;width:51px;height:51px;object-fit:contain;filter:drop-shadow(0 5px 12px rgba(1,30,36,.13))}
+a.brand.logo-lockup .logo-wordmark{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;min-width:0}
+a.brand.logo-lockup .logo-wordmark strong{display:block;font-family:Heebo,Arial,sans-serif;font-weight:900;font-size:29px;line-height:1.06;letter-spacing:-.8px;color:inherit}
+a.brand.logo-lockup .logo-dot{color:#55D9AE}
+a.brand.logo-lockup .logo-wordmark small{display:block;font-family:Assistant,Arial,sans-serif;font-size:10.5px;line-height:1.35;font-weight:700;letter-spacing:0;color:inherit;opacity:.7;margin-top:4px;white-space:nowrap}
+a.brand.logo-lockup:hover .logo-mark{filter:drop-shadow(0 5px 14px rgba(35,216,169,.3))}
+a.brand.logo-lockup:focus-visible{outline:3px solid #70EBB4;outline-offset:5px;border-radius:8px}
+a.brand.logo-lockup.footer-brand .logo-mark,footer a.brand.logo-lockup .logo-mark{width:42px;height:42px}
+a.brand.logo-lockup.footer-brand .logo-wordmark strong,footer a.brand.logo-lockup .logo-wordmark strong{font-size:24px;color:inherit}
+.site-head .brand.logo-lockup{color:#F6FFFA}
+.nav-wrap .brand.logo-lockup{color:#0F3241}
+@media(max-width:830px){
+ a.brand.logo-lockup{gap:7px}
+ a.brand.logo-lockup .logo-mark{width:43px;height:43px}
+ a.brand.logo-lockup .logo-wordmark strong{font-size:23px}
+ a.brand.logo-lockup .logo-wordmark small{font-size:9px}
+}
+@media(max-width:420px){
+ a.brand.logo-lockup .logo-mark{width:39px;height:39px}
+ a.brand.logo-lockup .logo-wordmark strong{font-size:21px}
+ a.brand.logo-lockup .logo-wordmark small{display:none}
+ .site-head .nav{gap:7px}
+}

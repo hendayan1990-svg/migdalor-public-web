@@ -1,1 +1,1 @@
-{"name":"מגדלור — בדיקת אפשרויות אינטרנט","short_name":"מגדלור","start_url":"/","display":"standalone","lang":"he","dir":"rtl","background_color":"#f7f7f1","theme_color":"#081d31","icons":[{"src":"/favicon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}
+{"name":"מגדלור — בדיקת אפשרויות אינטרנט","short_name":"מגדלור","start_url":"./","display":"standalone","lang":"he","dir":"rtl","background_color":"#f7f7f1","theme_color":"#081d31","icons":[{"src":"./favicon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}
